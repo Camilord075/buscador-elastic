@@ -1,0 +1,54 @@
+{
+    "productos": [
+        {
+            "sku": 7027789,
+            "nombre": "Mesa De Centro Manhattan Bronce, Champaña",
+            "tag": ""
+        },
+        {
+            "sku": 7022155,
+            "nombre": "Sala Cama Ana Eurocuero Azul",
+            "tag": ""
+        },
+        {
+            "sku": 7034160,
+            "nombre": "Sofa 3 Puestos Burgos Camel, Verde Y Natural Dummi",
+            "tag": "Nuevo"
+        },
+        {
+            "sku": 7034454,
+            "nombre": "Espejo Andretti Off White Verde",
+            "tag": "Nuevo"
+        },
+        {
+            "sku": 7016582,
+            "nombre": "Sofa Cama Manny Lino Turquesa, Natural Premiun",
+            "tag": "Ultimas Unidades!"
+        },
+        {
+            "sku": 7023363,
+            "nombre": "Mesa Decorativa Venus 55 Champaña",
+            "tag": ""
+        },
+        {
+            "sku": 7020994,
+            "nombre": "Velas 8.5X14.8X22 Choco Infinito",
+            "tag": "Nuevo"
+        },
+        {
+            "sku": 7002827,
+            "nombre": "Cama Queen Brooklyn Lino Gris, Miel",
+            "tag": "Ultimas Unidades!"
+        },
+        {
+            "sku": 7026353,
+            "nombre": "Mecedora Dominic Chenille Boga Marfil, Blanco Perla Poliuretano",
+            "tag": ""
+        },
+        {
+            "sku": 7004457,
+            "nombre": "Colchón King Energy Ortopédico Zabra (Garantía 14 años)",
+            "tag": "Nuevo"
+        }
+    ]
+}
