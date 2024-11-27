@@ -1,5 +1,4 @@
 import express from 'express'
-import productos from './mocks/productos.json' assert { type: 'json' }
 import bodyParser from 'body-parser'
 import { productRouter } from './routes/productos.js'
 
