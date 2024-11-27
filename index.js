@@ -12,10 +12,6 @@ app.get('/', (req, res) => {
     res.send('Funcionando')
 })
 
-app.get('/prueba', async (req, res) => {
-    res.send(productos)
-})
-
 app.listen(3000, () => {
     console.log('App listening on 3000')
 })
