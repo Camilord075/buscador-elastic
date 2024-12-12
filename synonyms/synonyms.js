@@ -1,4 +1,4 @@
-import { appendFile } from 'fs/promises'
+import { appendFileSync } from 'fs'
 import productos from '../mocks/productos.json' with { type: 'json' }
 
 export class Synonyms {
@@ -27,13 +27,18 @@ export class Synonyms {
         let numero = 0
 
         datos.forEach((dato) => {
+            console.log('entro una vez')
             numero += dato.length
             dato.map(async (row) => {
                 if (row.keywords.endsWith(',')){
                     let palabra = row.keywords.slice(0, -1)
-                    await appendFile('C:/Users/camil/Downloads/elasticsearch-8.16.1/config/synonyms/synonyms.txt', `\n"${row.nombre} => ${palabra.replaceAll(',', ', ')}"`)
+                    if (row.keywords.length > 0) {
+                        appendFileSync('C:/Users/carteta/Downloads/elasticsearch-8.16.1/config/synonyms/synonyms.txt', `\n"${row.nombre} => ${palabra.replaceAll(',', ', ')}"`)
+                    }
                 } else {
-                    await appendFile('C:/Users/camil/Downloads/elasticsearch-8.16.1/config/synonyms/synonyms.txt', `\n"${row.nombre} => ${row.keywords.replaceAll(',', ', ')}"`)
+                    if (row.keywords.length > 0) {
+                        appendFileSync('C:/Users/carteta/Downloads/elasticsearch-8.16.1/config/synonyms/synonyms.txt', `\n"${row.nombre} => ${row.keywords.replaceAll(',', ', ')}"`)
+                    }
                 }
                 
             })
