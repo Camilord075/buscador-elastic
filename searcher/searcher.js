@@ -46,6 +46,7 @@ export class Searcher {
                             categoria: { type: 'keyword' },
                             precio_grupo: { type: 'integer' },
                             precio_base: { type: 'integer' },
+                            image: { type: 'text' },
                             cod_pais: { type: 'keyword' },
                             cod_tienda: { type: 'keyword' }
                         }
@@ -74,6 +75,7 @@ export class Searcher {
                         categoria: row.categoria !== null ? row.categoria.toLowerCase() : 'NA',
                         precio_grupo: row.precio_base !== null ? parseFloat(row.precio_base) : 0,
                         precio_base: row.es_grupo ? parseFloat(row.precio_base) : parseFloat(row.precio_grupo),
+                        image: row.image !== null ? row.image.replaceAll('"', '') : null,
                         cod_pais: row.pais,
                         cod_tienda: row.tienda
                     }
@@ -128,7 +130,7 @@ export class Searcher {
                         }
                     },
                     sort: [],
-                    size: 50
+                    size: 10000
                 }
             }
 
@@ -155,7 +157,7 @@ export class Searcher {
                         }
                     },
                     sort: [],
-                    size: 50
+                    size: 10000
                 }
             }
 
@@ -164,7 +166,7 @@ export class Searcher {
                     elasticQueryNone.body.query.bool.filter.push({
                         bool: {
                             should: color.split(',').map((item) => ({
-                                wildcard: { color: `*${item.toLowerCase()}*` }
+                                term: { color: item.toLowerCase() }
                             })),
                             minimum_should_match: 1
                         }
@@ -173,7 +175,7 @@ export class Searcher {
                     elasticQuery.body.query.bool.filter.push({
                         bool: {
                             should: color.split(',').map((item) => ({
-                                wildcard: { color: `*${item.toLowerCase()}*` }
+                                term: { color: item.toLowerCase() }
                             })),
                             minimum_should_match: 1
                         }
@@ -186,7 +188,7 @@ export class Searcher {
                     elasticQueryNone.body.query.bool.filter.push({
                         bool: {
                             should: categoria.split(',').map((item) => ({
-                                wildcard: { categoria: `*${item.toLowerCase()}*` }
+                                term: { categoria: item.toLowerCase() }
                             })),
                             minimum_should_match: 1
                         }
@@ -195,7 +197,7 @@ export class Searcher {
                     elasticQuery.body.query.bool.filter.push({
                         bool: {
                             should: categoria.split(',').map((item) => ({
-                                wildcard: { categoria: `*${item.toLowerCase()}*` }
+                                term: { categoria: item.toLowerCase() }
                             })),
                             minimum_should_match: 1
                         }
@@ -237,11 +239,11 @@ export class Searcher {
             if (tienda) {
                 if (!consulta) {
                     elasticQueryNone.body.query.bool.filter.push({
-                        wildcard: { cod_tienda: `*${tienda}*` }
+                        term: { cod_tienda: tienda }
                     })
                 } else {
                     elasticQuery.body.query.bool.filter.push({
-                        wildcard: { cod_tienda: `*${tienda}*` }
+                        term: { cod_tienda: tienda }
                     })
                 }
             }
